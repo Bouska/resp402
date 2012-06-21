@@ -1,0 +1,10 @@
+body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+}
+
+#content {
+    margin: 20px;
+}

@@ -1,0 +1,77 @@
+/* used only by index, error and syslogin */
+
+body {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+}
+
+#top {
+    height: 75px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #004090;
+    color: white;
+    background-image: url('/static/image/header_back1.png'), 
+                      url('/static/image/header_back2.png');
+    background-repeat: no-repeat, repeat-x;
+    margin-bottom: 5px;
+}
+
+#big_title {
+    height: 31px;
+    padding-top: 6px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px;
+    font-size: 26px;
+    width: 160px;
+    float: left;
+}
+
+#slogan {
+    font-size: 12.5px;
+    float: right;
+    font-weight: bold;
+    margin: 12px 15px 0px 0px;
+    padding: 0px;
+    height: 18px;
+}
+
+#welcome {
+    width: 781px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+}
+            
+#left {
+    float: left;
+    margin: 0px;
+    width: 340px;
+    text-align: right;
+    font-size: 14px;
+    padding-top: 30px;
+}
+            
+#right {
+    float: left;
+    margin-left: 40px;
+    width: 300px;
+    padding: 0px;
+}
+            
+#warning {
+    background-color: #FFC285;
+    padding: 10px;
+    border: 2px solid #ff5656;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#content {
+    margin: 20px;
+}

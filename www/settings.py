@@ -4,27 +4,62 @@
 # plague.    --  Edsger W. Dijkstra
 
 from os import path
+from re import sub
 
-PROJECT_PATH = path.abspath(path.split(__file__)[0])
-
+# Absolute path to the directory that hold the manage.py file
+PROJECT_PATH = sub('/www$', '', path.abspath(path.split(__file__)[0]))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-AUTH_PROFILE_MODULE = 'user.Profile'
-LOGIN_URL = '/user/login'
-FORCE_SCRIPT_NAME = "" # hack for nginx
-ADMINS = (('Microz', 'null@null.com'),)
+ADMINS = (('NullCorp', 'null@null.com'),)
 MANAGERS = ADMINS
+
+# File containing the handlebars templates
+OBJECT_FILE = '%s/templates/objects.html' % PROJECT_PATH
+
+# User Profile Model
+AUTH_PROFILE_MODULE = 'profile.Profile'
+
+# Page to show after a syslogin
+LOGIN_REDIRECT_URL = '/zoidberg#profile'
+
+# url to internal login
+LOGIN_URL = '/syslogin'
+
+# hack for nginx
+FORCE_SCRIPT_NAME = ''
+
+# Upload settings
 UPLOAD_LOG = '/tmp/upload_log'
-UPLOAD_DIR =  '%s/documents/r' % PROJECT_PATH
-USER_CHECK = 'http://www.ulb.ac.be/commons/check?_type=normal&_sid=%s&_uid=%s'
+UPLOAD_DIR =  '%s/static/r' % PROJECT_PATH
 PARSING_WORKERS = 7
-LOGIN_REDIRECT_URL = '/zoidberg'
+
+# ULB login, need to add the url to redirect at the end
+ULB_LOGIN = 'https://www.ulb.ac.be/commons/intranet?_prt=ulb:facultes:sciences:p402&_ssl=on&_prtm=redirect&_appl='
+
+# ULB authentificator, need 2 parameters : SID and UID
+ULB_AUTH = 'http://www.ulb.ac.be/commons/check?_type=normal&_sid=%s&_uid=%s'
+
 TIME_ZONE = 'Europe/Paris'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
-CONVERT_PDF = True
+
+ugettext = lambda s: s
+
+LANGUAGES = (
+  ('fr', ugettext('French')),
+  ('en', ugettext('English')),
+)
+
+USE_L10N = True
+
+ROOT_URLCONF = 'www.urls'
+STATIC_ROOT = ''
+STATIC_URL = '/static/'
+STATICFILES_DIRS = ('%s/static/' % PROJECT_PATH,)
+ALLOWED_INCLUDE_ROOTS = ('%s/templates' % PROJECT_PATH,)
+TEMPLATE_DIRS = ( '%s/templates' % PROJECT_PATH,)
 
 DATABASES = {
     'default': {
@@ -37,27 +72,34 @@ DATABASES = {
     }
 }
 
-ugettext = lambda s: s
-
-LANGUAGES = (
-  ('fr', ugettext('French')),
-  ('en', ugettext('English')),
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.markup',
+    'south',
+    'agenda',
+    'categorie',
+    'course',
+    'discussion',
+    'document',
+    'group',
+    'notification',
+    'permission',
+    'profile',
+    'search',
+    'tag',
 )
 
-USE_L10N = True
-
-STATIC_ROOT = ''
-STATIC_URL = '/static/'
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-STATICFILES_DIRS = ('%s/static/' % PROJECT_PATH,)
-ALLOWED_INCLUDE_ROOTS = ('%s/templates' % PROJECT_PATH,)
+SECRET_KEY = 'v_g654gxfo#38*ju5*@bqbxg60a95dw*vpc+t&^(q*tjzazx1%'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-
-SECRET_KEY = 'v_g654gxfo#38*ju5*@bqbxg60a95dw*vpc+t&^(q*tjzazx1%'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -73,27 +115,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'www.urls'
-
-TEMPLATE_DIRS = (
-    '%s/templates' % PROJECT_PATH,
-)
-
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.i18n',
-)
-
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.markup',
-    'south',
 )
 
 # A sample logging configuration. The only tangible logging

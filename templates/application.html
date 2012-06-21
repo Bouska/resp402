@@ -1,0 +1,35 @@
+{% comment %}
+
+# Copyright 2011, hast. All rights reserved.
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at
+# your option) any later version.
+
+{% endcomment %}
+
+{% load i18n %}
+{% load ssi from future %}
+
+<html>
+    <head>
+        <link href="/static/style/application.css" rel="stylesheet" type="text/css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>PROJ-402</title>
+        <script src="/static/third_party/jquery-1.7.min.js"></script>
+        <script src="/static/third_party/underscore-min.js"></script>
+        <script src="/static/third_party/backbone-min.js"></script>
+        <script src="/static/third_party/handlebars-1.0.0.beta.6.js"></script>
+        <script type=text/javascript>
+            {% include "urls.js" %}
+        </script>
+        {% ssi objects %}
+    </head>
+
+    <body>
+        <div id="content">
+            Suddenly, Application!
+        </div>
+    </body>
+</html>
