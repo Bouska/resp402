@@ -11,4 +11,9 @@ class Course(models.Model):
     slug = models.SlugField(unique=True)
     name = models.TextField()
     description = models.TextField(null=True)
-    url = models.TextField(null=True)
+
+class CourseURL(models.Model):
+    course = models.ForeignKey(Course)
+    url = models.TextField()
+    name = models.TextField()
+    click = models.PositiveIntegerField()

@@ -5,10 +5,11 @@
 # the Free Software Foundation, either version 3 of the License, or (at
 # your option) any later version.
 
+from django.contrib.contenttypes.generic import GenericForeignKey
 from django.db.models.signals import post_save, post_syncdb
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
 from permission.models import Permission
-from course.models import Course
 from django.db.models import Q
 from django.db import models
 
@@ -28,14 +29,16 @@ class Profile(models.Model):
         return self.user.first_name + " " + self.user.last_name
     
 
-class CourseFollow(models.Model):
+class Following(models.Model):
     user = models.ForeignKey(User)
-    course = models.ForeignKey(Course)
+    foll_oid = models.PositiveIntegerField()
+    foll_content = models.ForeignKey(ContentType)
+    follow = GenericForeignKey('foll_content', 'foll_oid')
     last_visit = models.DateTimeField(auto_now_add=True, null=False)
     visited = models.IntegerField(default=0, null=False)
 
     class Meta:
-        unique_together = ('user', 'course')
+        unique_together = ('user', 'foll_oid', 'foll_content')
 
 
 class Inscription(models.Model):
