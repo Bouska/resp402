@@ -39,8 +39,14 @@ def json_object(request, obj, fields, **kwargs):
 
     object_str = []
     for field in fields:
+        if type(field) == tuple:
+            show = field[1]
+            field = field[0]
+        else:
+            show = field
+
         value = get_recur_attr(obj, field.split('.'))
-        field_name = field.replace('.', '_')
+        field_name = show.replace('.', '_')
 
         if value is None:
             object_str.append('"%s": null' % field_name)

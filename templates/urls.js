@@ -17,10 +17,12 @@ sorted([
 ])
 {% endcomment %} */
 
-urlz = {
+urls = {
     'application': 'zoidberg',
     'auth_entry': function(a) { return 'auth/' + a; },
     'index': '',
     'logout': 'logout',
     'syslogin': 'syslogin',
+    'profile_get': function(a) { return 'profile/get/' + a },
+    'profile_me': 'profile/me',
 };

@@ -26,7 +26,7 @@ urlpatterns = patterns('',
     # Plateforme URLS, here we include all the things outputing json
     url(r'^course/', include('course.urls'), name='course'),
     url(r'^document/', include('document.urls'), name='document'),
-
+    url(r'^profile/', include('profile.urls'), name='profile'),
 
     # The product/client entry points
     url(r'^$',
