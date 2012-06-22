@@ -5,8 +5,8 @@
 # the Free Software Foundation, either version 3 of the License, or (at 
 # your option) any later version.
 
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.template import RequestContext
@@ -29,6 +29,14 @@ def ulb_redirection(request, **kwargs):
 def app_redirection(request, **kwargs):
     return HttpResponseRedirect(reverse('application'))
 
+# decorator whom stop anonymous user and give them a 403
+def stop_anon(function):
+    def stop(request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return function(request, *args, **kwargs)
+        else:
+            return HttpResponseForbidden('not authorized')
+    return stop
 
 def get_text(nodelist):
     rc = [ node.data for node in nodelist if node.nodeType == node.TEXT_NODE ]
