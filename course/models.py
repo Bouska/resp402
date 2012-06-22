@@ -16,4 +16,4 @@ class CourseURL(models.Model):
     course = models.ForeignKey(Course)
     url = models.TextField()
     name = models.TextField()
-    click = models.PositiveIntegerField()
+    click = models.PositiveIntegerField(default=0)
