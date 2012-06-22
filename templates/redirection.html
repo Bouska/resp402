@@ -23,7 +23,6 @@
                 else
                     var next = "profile";
                 var host = url.substring(0, url.indexOf('zoid'));
-                console.log('{{ url|safe }}' + encodeURIComponent(host + 'auth/' + next));
                 window.location = '{{ url|safe }}' + encodeURIComponent(host + 'auth/' + next);
             });
         </script>
