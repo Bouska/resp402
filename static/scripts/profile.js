@@ -9,7 +9,7 @@
 
 var User = Backbone.Model.extend({
     initialize: function(params) {
-        if (params.target == "me")
+        if (params.target == 'me')
             this.url = function() {
                 return urls['profile_me'];
             }
@@ -26,14 +26,19 @@ var ProfileView = Backbone.View.extend({
     initialize: function() {
         _.bindAll(this, 'render');
         this.myself = new User({target: 'me'});
-        this.myself.on("change", this.render);
+        this.myself.on('change', this.render);
         this.myself.fetch();
+        this.courses = new Backbone.Collection();
+        this.courses.bind('all', this.render, this);
+        this.courses.url = urls['course_all'];
+        this.courses.fetch();
         this.render();
     },
 
     render: function() {
         $(this.el).html(templates['tpl-profile']({
             realname: this.myself.get('realname'),
+            courses: this.courses.toJSON(),
         }));
         return this;
     },

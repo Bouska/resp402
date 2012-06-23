@@ -14,6 +14,11 @@ your option) any later version.
 
 <script id="tpl-profile" type="text/x-handlebars-template">
     <h1>{{ realname }}</h1>
+    <ul>
+        {{#each courses }}
+        <li><a href="#course/{{ this.slug }}">{{ this.name }}</a></li>
+        {{/each }}
+    </ul>
 </script>
 
 <script id="tpl-menu-item" type="text/x-handlebars-template">

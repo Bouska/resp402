@@ -26,4 +26,5 @@ urls = {
     'profile_get': function(a) { return 'profile/get/' + a },
     'profile_me': 'profile/me',
     'category_get': function(a) { return 'category/get/' + a},
+    'course_all': 'course/all',
 };

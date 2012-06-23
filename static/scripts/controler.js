@@ -137,7 +137,7 @@ var ZoidRouter = Backbone.Router.extend({
     },
 
     profile: function() {
-        var view = new ProfileView({el: $('#content')});
+        new ProfileView({el: $('#content')});
     },
 
     course_list: function() {
