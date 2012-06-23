@@ -30,6 +30,11 @@ def json_object(request, obj, fields, **kwargs):
     def get_recur_attr(obj, attrs):
         attr = attrs.pop(0)
         val = getattr(obj, attr, None)
+        if val is None:
+            try:
+                val = obj[attr]
+            except:
+                pass
         if callable(val):
                 val = val()
         if len(attrs) > 0:

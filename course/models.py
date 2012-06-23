@@ -8,8 +8,8 @@
 from django.db import models
 
 class Course(models.Model):
-    slug = models.SlugField(unique=True)
-    name = models.TextField()
+    slug = models.SlugField()
+    name = models.CharField(max_length=100)
     description = models.TextField(null=True)
 
 class CourseURL(models.Model):

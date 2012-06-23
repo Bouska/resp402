@@ -13,6 +13,7 @@ META_ROLE = ['Leader', 'Accounting', 'Administrator', 'Party', 'Academique',
 
 class Group(models.Model):
     name = models.CharField(max_length=100)
+    slug = models.SlugField()
     description = models.TextField(null=True)
 
 class GroupMember(models.Model):

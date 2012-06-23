@@ -1,0 +1,124 @@
+#header {
+    height: 75px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #004090;
+    color: white;
+    background-image: url('/static/image/header_back1.png'), 
+                      url('/static/image/header_back2.png');
+    background-repeat: no-repeat, repeat-x;
+    margin-bottom: 5px;
+}
+
+#header a {
+    color: white;
+    text-decoration: none;
+}
+
+#big_title {
+    height: 31px;
+    padding-top: 6px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px;
+    font-size: 26px;
+    width: 160px;
+    float: left;
+}
+
+#slogan {
+    font-size: 12.5px;
+    float: right;
+    font-weight: bold;
+    margin: 12px 15px 0px 0px;
+    padding: 0px;
+    height: 18px;
+}
+
+#links {
+    clear: both;
+    padding: 4px 0px 0px 0px;
+    margin: 0px 20px 0px 20px;
+}
+
+#links .right:hover {
+    float: right;
+    border: 1px solid #0065b0;
+    background-color: #0055a5;
+}
+
+#links .right {
+    float: right;
+    background-color: #004595;
+    border: 1px solid #0055a0;
+    border-radius: 3px;
+    padding: 6px 12px 4px 12px;
+    font-weight: bold;
+    height: 15px;
+    overflow: hidden;
+    font-size: 11px;
+}
+
+#links .left {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    font-size: 11px;
+}
+
+#links .left dt {
+    padding: 6px 12px 4px 12px;
+    background-color: #004595;
+    border: 1px solid #0055a0;
+    border-radius: 3px;
+    font-weight: bold;
+    height: 15px;
+    min-width: 80px;
+    max-width: 200px;
+}
+
+#links .left dt:hover {
+    border: 1px solid #0065b0;
+    background-color: #0055a5;
+}
+
+#links .left dd {
+    position: absolute;
+    overflow: hidden;
+    min-width: 100px;
+    display: none;
+    background: #0055a5;
+    border: 1px #0065b5 solid;
+    border-radius: 2px;
+    z-index: 4;
+    padding: 0px;
+    margin: -1px 0px 0px 0px;
+}
+
+#links .left li {
+    padding: 3px 15px 3px 15px;
+}
+
+#links .left ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+#links .left .arrow {
+    float: right;
+}
+
+#links .left span {
+    cursor: pointer;
+}
+
+#links .left .light {
+    background-color: #3375c5;
+}
+
+#links .left .light:hover {
+    background-color: #5790d4;
+}

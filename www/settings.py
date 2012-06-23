@@ -82,7 +82,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'south',
     'agenda',
-    'categorie',
+    'category',
     'course',
     'discussion',
     'document',

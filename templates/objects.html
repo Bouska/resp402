@@ -15,3 +15,27 @@ your option) any later version.
 <script id="tpl-profile" type="text/x-handlebars-template">
     <h1>{{ realname }}</h1>
 </script>
+
+<script id="tpl-menu-item" type="text/x-handlebars-template">
+    <dt>
+    {{#if toplink }}
+        <a href="{{ toplink }}">{{ title }}</a>
+    {{else}}
+        {{ title }}
+    {{/if}}
+    </dt>
+    <dd>
+        <ul>
+        {{#each categories }}
+            <li>
+                <span class="link" id="menu_category_{{ this.id }}">
+                    {{ this.name }}
+                </span> <span class="arrow">»</span>
+            </li>
+        {{/each }}
+        {{#each links }}
+            <li class="light"><a href="{{ this.url }}">{{ this.name }}</a></li>
+        {{/each }}
+        </ul>
+    </dd>
+</script>
