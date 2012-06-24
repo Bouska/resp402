@@ -30,3 +30,12 @@ function dump_(obj) {
 function dump(obj) {
     return dump_(obj);
 }
+
+function recurloop(func, delay, times, count) {
+    if (count == undefined)
+        var count = 0;
+    if (count < times) {
+        func();
+        setTimeout(function() { recurloop(func, delay, times, count + 1); }, delay);
+    }
+}

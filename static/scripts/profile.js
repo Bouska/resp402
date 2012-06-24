@@ -36,6 +36,7 @@ var ProfileView = Backbone.View.extend({
     },
 
     render: function() {
+        $(this.el).css('padding', '10px 20px 10px 20px');
         $(this.el).html(templates['tpl-profile']({
             realname: this.myself.get('realname'),
             courses: this.courses.toJSON(),

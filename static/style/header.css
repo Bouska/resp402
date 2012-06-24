@@ -9,6 +9,8 @@
     background-image: url('/static/image/header_back1.png'), 
                       url('/static/image/header_back2.png');
     background-repeat: no-repeat, repeat-x;
+    position: fixed;
+    top: 0px;
 }
 
 .shadow {
@@ -42,6 +44,10 @@
 }
 
 #menu {
+    position: fixed;
+    top: 45px;
+    width: 100%;
+    background-color: white;
     border-bottom: 1px black solid;
     display: none;
     margin: 0px;

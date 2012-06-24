@@ -110,10 +110,19 @@ var MenuView = Backbone.View.extend({
             this.visibility = false;
             $(this.el).slideUp(100);
             $('#header').delay(90).addClass('shadow');
+            recurloop(function() {
+                if ($('#menu').css('display') == 'none')
+                    $('#content').css('margin-top', 45 + 'px');
+                else
+                    $('#content').css('margin-top', 61 + $('#menu').height() + 'px');
+            }, 10, 12);
         } else {
             this.visibility = true;
             $('#header').delay(90).removeClass('shadow');
             $(this.el).slideDown(100);
+            recurloop(function() {
+                $('#content').css('margin-top', 61 + $('#menu').height() + 'px');
+            }, 10, 12);
         }
     },
 });
