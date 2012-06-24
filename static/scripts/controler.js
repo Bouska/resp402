@@ -149,6 +149,7 @@ var ZoidRouter = Backbone.Router.extend({
     },
 
     course_view: function(slug) {
+        new CourseView({el: $('#content'), slug: slug});
     },
 
     group_view: function(slug) {
