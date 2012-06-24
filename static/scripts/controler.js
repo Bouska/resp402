@@ -42,12 +42,13 @@ var MainMenu = new MenuItem({
         {url: '#boards', name: 'General Forums'},
         {url: '#wall', name: 'Wall'},
         {url: '#help', name: 'Help'},
-        {url: 'https://github.com/ekatsah/resp402', name: 'Sources'}],
+        {url: 'https://github.com/ekatsah/resp402', name: 'Sources'},
+        {url: '/logout', name: 'Logout'},],
 });
 
 var MenuItemView = Backbone.View.extend({
     initialize: function(params) {
-        _.bindAll(this, 'render', 'show', 'hide', 'realhide', 'load');
+        _.bindAll(this, 'render', 'load');
         this.menu_id = params.id;
         this.indent = params.indent;
         this.count = 0;
@@ -62,25 +63,7 @@ var MenuItemView = Backbone.View.extend({
     },
 
     events: {
-        'mouseover': 'show',
-        'mouseout': 'hide',
         'click .link': 'load',
-    },
-
-    show: function() {
-        ++this.count;
-        $('#menuitem_' + this.menu_id + ' dd').css('display', 'block');
-    },
-
-    hide: function() {
-        --this.count;
-        var self = this;
-        setTimeout(function() { self.realhide(); }, 100);
-    },
-    
-    realhide: function() {
-        if (this.count == 0)
-            $('#menuitem_' + this.menu_id + ' dd').slideUp(100);
     },
     
     load: function(e) {
@@ -103,7 +86,8 @@ var MenuItemView = Backbone.View.extend({
 
 var MenuView = Backbone.View.extend({
     initialize: function(params) {
-        _.bindAll(this, 'render', 'load');
+        _.bindAll(this, 'render', 'load', 'toggle');
+        this.visibility = false;
         $(this.el).bind('load', this.load);
         $(this.el).append((new MenuItemView({
             id: 0, 
@@ -119,6 +103,18 @@ var MenuView = Backbone.View.extend({
             el: document.createElement('dl'),
             indent: indent + 1,
         })).el);
+    },
+
+    toggle: function() {
+        if (this.visibility) {
+            this.visibility = false;
+            $(this.el).slideUp(100);
+            $('#header').delay(90).addClass('shadow');
+        } else {
+            this.visibility = true;
+            $('#header').delay(90).removeClass('shadow');
+            $(this.el).slideDown(100);
+        }
     },
 });
 
@@ -168,4 +164,5 @@ $(document).ready(function() {
     
     // Create the first item in the menu
     var menu = new MenuView({el: '#menu'});
+    $("#header").click(menu.toggle);
 });

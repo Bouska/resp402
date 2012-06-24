@@ -32,20 +32,16 @@
     </head>
 
     <body>
-        <div id="header">
+        <div id="header" class="shadow">
             <h1 id="big_title">
                 P402 <small>alpha</small>
             </h1>
             <p id="slogan">
                 {% trans "Bring back real collaboration between students!" %}
             </p>
-            <div id="links">
-                <div class="right">
-                    <a href="{% url logout %}">{% trans "Logout" %}</a>
-                </div>
-                <div id="menu"></div>
-            </div>
         </div>
+
+        <div id="menu" class="shadow"></div>
 
         <div id="content">
             Suddenly, Application!
