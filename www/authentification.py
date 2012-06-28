@@ -38,6 +38,15 @@ def stop_anon(function):
             return HttpResponseForbidden('not authorized')
     return stop
 
+# decorator whom stop non post request and give them a 403
+def uniq_post(function):
+    def stop(request, *args, **kwargs):
+        if request.method == 'POST':
+            return function(request, *args, **kwargs)
+        else:
+            return HttpResponseForbidden('not authorized')
+    return stop
+
 def get_text(nodelist):
     rc = [ node.data for node in nodelist if node.nodeType == node.TEXT_NODE ]
     return ''.join(rc)

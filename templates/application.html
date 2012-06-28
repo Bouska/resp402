@@ -15,6 +15,7 @@
 <html>
     <head>
         <link href="/static/style/application.css" rel="stylesheet" type="text/css">
+        <link href="/static/style/overlay.css" rel="stylesheet" type="text/css">
         <link href="/static/style/header.css" rel="stylesheet" type="text/css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>PROJ-402</title>
@@ -27,11 +28,13 @@
         </script>
         {% ssi objects %}
         <script src="/static/scripts/helpers.js"></script>
+        <script src="/static/scripts/overlay.js"></script>
         <script src="/static/scripts/profile.js"></script>
+        <script src="/static/scripts/course.js"></script>
         <script src="/static/scripts/controler.js"></script>
     </head>
 
-    <body>
+    <body id="body">
         <div id="header" class="shadow">
             <h1 id="big_title">
                 P402 <small>alpha</small>

@@ -175,4 +175,7 @@ $(document).ready(function() {
     // Create the first item in the menu
     var menu = new MenuView({el: '#menu'});
     $("#header").click(menu.toggle);
+    
+    // Create the overlay
+    window.overlay = new Overlay({el: '#body'});
 });

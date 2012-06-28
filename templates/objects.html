@@ -7,9 +7,10 @@ the Free Software Foundation, either version 3 of the License, or (at
 your option) any later version.
 -->
 
-<script id="tpl-course-desc" type="text/x-handlebars-template">
+<script id="tpl-course" type="text/x-handlebars-template">
     <h1>{{ name }}</h1>
     <p>{{ description }}</p>
+    <input type="button" id="upload_button" value="upload file"/>
 </script>
 
 <script id="tpl-profile" type="text/x-handlebars-template">
@@ -43,4 +44,40 @@ your option) any later version.
         {{/each }}
         </ul>
     </dd>
+</script>
+
+<script id="tpl-overlay" type="text/x-handlebars-template">
+    <div id="grey">&nbsp;</div>
+    <div id="overlay_box">
+        <h3 id="overlay_title"></h3>
+        <img src="/static/image/close.gif" id="overlay_close">
+        <p id="overlay_content">Loading..</p>
+    </div>
+</script>
+
+<script id="ovl-upload" type="text/x-handlebars-template">
+    <form id="upload_form">
+        <table>
+            <tr><td>Filename : </td>
+                <td><input id="uf_filename" name="uf_filename"/></td></tr>
+            <tr><td>Description : </td>
+                <td><textarea id="uf_description" name="uf_description"></textarea></td></tr>
+            <tr><td>File : </td>
+                <td><input id="uf_file" name="uf_file" type="file"></td></tr>
+        </table>
+        <input id="upload_form_submit" type="submit" value="upload">
+    </form>
+    <hr>
+    <form id="upload_http_form">
+        <table>
+            <tr><td>Filename : </td>
+                <td><input id="uh_filename" name="uh_filename"/></td></tr>
+            <tr><td>Description : </td>
+                <td><textarea id="uh_description" name="uh_description"></textarea></td></tr>
+            <tr><td>URL : </td>
+                <td><input id="uh_url" name="uh_url"></td></tr>
+        </table>
+        <input id="upload_http_submit" type="submit" value="upload">
+    </form>
+    <iframe id="upload_frame"></iframe>
 </script>

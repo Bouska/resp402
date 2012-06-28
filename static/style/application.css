@@ -17,3 +17,9 @@ a {
 #content h1 {
     margin: 5px 0px 10px 0px;
 }
+
+#upload_frame {
+    width: 0px;
+    height: 0px;
+    border: none;
+}

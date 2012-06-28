@@ -19,6 +19,12 @@ var CourseView = Backbone.View.extend({
         this.render();
     },
 
+    events: {
+        'click #upload_button': function() {
+            overlay.make('Upload File', 'ovl-upload');
+        },
+    },
+
     render: function() {
         $(this.el).css('padding', '10px 20px 10px 20px');
         $(this.el).html(templates['tpl-course'](this.model.toJSON()));
